@@ -51,7 +51,7 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLi
     // 5. 三角形のインデックスバッファを作成
     // インデックス配列
     uint16_t indices[] = {
-        0,1,2
+        0,1,2,
     };
     IndexBuffer triangleIB;
     triangleIB.Init(sizeof(indices), 2);
