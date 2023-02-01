@@ -58,12 +58,12 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLi
 
         // step-3 ワールド行列を作成
         Matrix mWorld1, mWorld2; 
-        mWorld1.MakeTranslation(sin(((s++) % 100) / 100.0f * M_PI), cos(((s++) % 100) / 100.0f * M_PI), 0.0f);
-        mWorld2.MakeRotationZ(tan(((s++) % 100) / 100.0f * M_PI));
-        mWorld1.Multiply(mWorld1, mWorld2);
+        mWorld1.MakeTranslation(sin(((s++) % 1000) * 2 / 1000.0f * M_PI), /*cos(((s++) % 1000) * 2 / 1000.0f * M_PI)*/ 0.0f , 0.0f);
+        mWorld2.MakeRotationZ(tan(((s++) % 1000) * 2 / 100.0f * M_PI));
+        mWorld2.Multiply(mWorld2, mWorld1);
 
         // step-4 ワールド行列をグラフィックメモリにコピー
-        cb.CopyToVRAM(mWorld1);
+        cb.CopyToVRAM(mWorld2);
 
         // step-5 ディスクリプタヒープを設定
         renderContext.SetDescriptorHeap(ds);
